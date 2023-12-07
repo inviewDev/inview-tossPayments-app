@@ -118,9 +118,6 @@ export default function Home() {
             <button
               className="button"
               onClick={async () => {
-                if (!customerName) { alert('업체명을 입력해주세요.'); nameRef.current.focus(); return; }
-                if (!emailPrefix) { alert('이메일을 입력해주세요.'); emailPrefixRef.current.focus(); return; }
-                if (!customerMobilePhone) { alert('전화번호를 입력해주세요.'); phoneRef.current.focus(); return; }
                 try {
                   // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
                   // @docs https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
