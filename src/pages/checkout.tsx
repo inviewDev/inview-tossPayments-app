@@ -32,6 +32,25 @@ export default function Home() {
   const [emailDomain, setEmailDomain] = useState('');
   const [isCustomDomain, setIsCustomDomain] = useState(false);
 
+  const formatPhoneNumber = (value) => {
+    const number = value.replace(/[^\d]/g, "");
+    let phone = "";
+    if (number.length < 4) {
+        return number;
+    } else if (number.length < 7) {
+        phone += number.substr(0, 3);
+        phone += "-";
+        phone += number.substr(3);
+    } else {
+        phone += number.substr(0, 3);
+        phone += "-";
+        phone += number.substr(3, 4);
+        phone += "-";
+        phone += number.substr(7);
+    }
+    return phone;
+  };
+  
   const nameRef = useRef(null);
   const emailPrefixRef = useRef(null);
   const phoneRef = useRef(null);
@@ -73,7 +92,7 @@ export default function Home() {
   return (
     <section className="payment_wrap">
         <div className="user_info">
-          <h1>주문자 정보?</h1>
+          <h1>주문자 정보</h1>
           <p>주문금액</p>
           <input type="text" inputMode="numeric" placeholder="주문금액을 입력해주세요." pattern="\d*" value={price === 0 ? '' : price} onChange={(e) => {
             // 입력값이 없거나 숫자일 경우에만 상태 업데이트
@@ -105,7 +124,14 @@ export default function Home() {
             {isCustomDomain && (<input type="text" className="selfInput" value={emailDomain} onChange={(e) => setEmailDomain(e.target.value)} placeholder="입력해주세요." />)}
           </div>
           <p>전화번호</p>
-          <input ref={phoneRef} type="tel" value={customerMobilePhone} onChange={(e) => setCustomerMobilePhone(e.target.value)} placeholder="전화번호를 입력해주세요." required />
+          <input 
+              ref={phoneRef} 
+              type="tel" 
+              value={customerMobilePhone} 
+              onChange={(e) => setCustomerMobilePhone(formatPhoneNumber(e.target.value))} 
+              placeholder="전화번호를 입력해주세요." 
+              required 
+          />
           <div className="total"><span>최종금액: <b>{`${price.toLocaleString()}원`}</b></span></div>
         </div>
         <div className="method_info">
