@@ -142,7 +142,7 @@ export default function Home() {
         </div>
         <div className="result wrapper">
             <button
-              className={customerOrder && customerName && emailPrefix && (isCustomDomain ? emailDomain : emailSuffix) && customerMobilePhone ? "button" : "button disable"}
+              className={customerOrder && customerName && emailPrefix && (isCustomDomain ? emailDomain : emailSuffix) && customerMobilePhone.length === 13 ? "button" : "button disable"}
               onClick={async () => {
                 try {
                   // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
