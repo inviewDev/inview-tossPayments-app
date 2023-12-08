@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <section className="payment_wrap">
         <div className="user_info">
-          <h1>주문자 정보</h1>
+          <h1>주문자 정보?</h1>
           <p>주문금액</p>
           <input type="text" inputMode="numeric" placeholder="주문금액을 입력해주세요." pattern="\d*" value={price === 0 ? '' : price} onChange={(e) => {
             // 입력값이 없거나 숫자일 경우에만 상태 업데이트
