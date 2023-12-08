@@ -152,7 +152,7 @@ export default function Home() {
                     orderName: customerOrder,
                     customerName: customerName,
                     customerEmail: emailPrefix + '@' + (isCustomDomain ? emailDomain : emailSuffix),
-                    customerMobilePhone: customerMobilePhone,
+                    customerMobilePhone: customerMobilePhone.replace(/-/g, ''),
                     successUrl: `${window.location.origin}/success`,
                     failUrl: `${window.location.origin}/fail`,
                   });
