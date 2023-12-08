@@ -32,7 +32,7 @@ export default function Home() {
   const [emailDomain, setEmailDomain] = useState('');
   const [isCustomDomain, setIsCustomDomain] = useState(false);
 
-  const formatPhoneNumber = (value) => {
+  const formatPhoneNumber = (value: string) => {
     const number = value.replace(/[^\d]/g, "");
     let phone = "";
     if (number.length < 4) {
@@ -50,7 +50,7 @@ export default function Home() {
     }
     return phone;
   };
-  
+
   const nameRef = useRef(null);
   const emailPrefixRef = useRef(null);
   const phoneRef = useRef(null);
