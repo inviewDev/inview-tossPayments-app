@@ -111,7 +111,7 @@ export default function Home() {
           <input ref={nameRef} type="text" value={customerOrder} onChange={(e) => setCustomerOrder(e.target.value)} placeholder="업체명을 입력해주세요." required />
           <p>이메일주소</p>
           <div className="emailBox">
-            <input ref={emailPrefixRef} value={emailPrefix} onChange={(e) => setEmailPrefix(e.target.value)} placeholder="이메일" /> @
+            <input ref={emailPrefixRef} value={emailPrefix} onChange={(e) => setEmailPrefix(e.target.value)} placeholder="이메일" />
             <select value={emailSuffix} onChange={(e) => { setEmailSuffix(e.target.value); setIsCustomDomain(e.target.value === ''); }}>
               <option value="gmail.com">gmail.com</option>
               <option value="hanmail.net">hanmail.net</option>
